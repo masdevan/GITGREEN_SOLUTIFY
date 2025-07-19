@@ -8,7 +8,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('settings.json', '.'), ('allow_files.json', '.'), ('ignored_files.py', '.'), ('.gitignore', '.')],
+    datas=[('settings.json', '.'), ('ignored_files.py', '.'), ('.gitignore', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
