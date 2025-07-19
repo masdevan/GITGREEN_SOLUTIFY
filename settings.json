@@ -1,0 +1,20 @@
+{
+  "username": "masdevan",
+  "email": "masdevansugiharta@gmail.com",
+  "github_email": "masdevansugiharta@gmail.com",
+  "project_folder": "C:/laragon/www/project/PHP_CODE_NEXT_LEVEL_PROJECTS",
+  "push_per_day": "1",
+  "branch_names": [
+    "feat/bug_fix",
+    "feat/fix_crash"
+  ],
+  "commit_messages": [
+    "Halo ini kode baru",
+    "Coba tebak ini apa",
+    "menyala abangku"
+  ],
+  "start_date": "2021-06-10",
+  "end_date": "2021-06-12",
+  "allowed_extensions": [".php", ".js", ".py", ".txt"],
+  "excluded_folders": [".git", "node_modules", "venv", "__pycache__"]
+}
