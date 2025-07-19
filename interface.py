@@ -7,19 +7,26 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtCore import QDate, QThread, pyqtSignal, Qt
 
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath('.'), relative_path)
+
 SETTINGS_FILE = 'settings.json'
 
 def load_settings():
-    if os.path.exists(SETTINGS_FILE):
+    path = resource_path(SETTINGS_FILE)
+    if os.path.exists(path):
         try:
-            with open(SETTINGS_FILE, 'r', encoding='utf-8') as f:
+            with open(path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except Exception:
             return {}
     return {}
 
 def save_settings(data):
-    with open(SETTINGS_FILE, 'w', encoding='utf-8') as f:
+    path = resource_path(SETTINGS_FILE)
+    with open(path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2)
 
 class SettingsWindow(QWidget):

@@ -2,6 +2,15 @@ import os
 import json
 import subprocess
 from datetime import datetime
+import sys
+from PyQt5.QtWidgets import QApplication
+from interface import SettingsWindow
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath('.'), relative_path)
+
 def auto_commit_and_push(log_func=None):
     # Pastikan working directory benar-benar bersih sebelum mulai
     try:
@@ -26,7 +35,7 @@ def auto_commit_and_push(log_func=None):
         if log_func:
             log_func(f"Gagal membersihkan repo: {e}")
     # Load settings
-    with open('settings.json', 'r', encoding='utf-8') as f:
+    with open(resource_path('settings.json'), 'r', encoding='utf-8') as f:
         settings = json.load(f)
 
     project_folder = settings['project_folder']
@@ -267,9 +276,6 @@ def auto_commit_and_push(log_func=None):
         except Exception as e:
             if log_func:
                 log_func(f'Failed to final-restore {file_path}: {e}')
-import sys
-from PyQt5.QtWidgets import QApplication
-from interface import SettingsWindow
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
